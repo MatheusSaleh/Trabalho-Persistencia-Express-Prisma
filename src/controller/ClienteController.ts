@@ -13,7 +13,10 @@ export const createCliente = async (req: Request, res: Response) => {
 
 export const getAllClientes = async (req: Request, res: Response) => {
     try {
-        const clientes = await prisma.cliente.findMany();
+        const clientes = await prisma.cliente.findMany({include: {
+            veiculos: true,
+            agendamentos: true
+        }});
 
         res.json(clientes);
     } catch (error){
