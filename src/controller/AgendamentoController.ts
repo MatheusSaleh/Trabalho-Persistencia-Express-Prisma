@@ -6,7 +6,7 @@ export const getAllAgendamentos = async(req: Request, res: Response) => {
         const agendamentos = await prisma.agendamento.findMany({
             include: {
                 cliente: true,
-                servicos: true
+                servicos: true,
             }
         });
 

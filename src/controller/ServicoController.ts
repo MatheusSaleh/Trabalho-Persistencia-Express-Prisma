@@ -5,7 +5,8 @@ export const getAllServicos = async (req: Request, res: Response) => {
     try{
         const servicos = await prisma.servico.findMany({
             include: {
-                agendamento: true
+                agendamento: true,
+                veiculos: true
             }
         })
         res.json(servicos);
