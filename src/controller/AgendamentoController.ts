@@ -7,6 +7,7 @@ export const getAllAgendamentos = async(req: Request, res: Response) => {
             include: {
                 cliente: true,
                 servicos: true,
+                
             }
         });
 
