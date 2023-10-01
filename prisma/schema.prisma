@@ -36,6 +36,7 @@ model Servico {
   veiculos     Veiculo[]    @relation("ServicoVeiculo")
   agendamento  Agendamento  @relation(fields: [agendamentoId], references: [id])
   agendamentoId Int
+  situacao String? @default("Em Andamento")
 }
 
 model Agendamento {

@@ -15,3 +15,33 @@ export const getAllServicos = async (req: Request, res: Response) => {
         res.status(500).json({error: "Erro ao buscar Serviços"})
     }
 };
+
+export const atualizarSituacaoDoServico = async (req: Request, res: Response) => {
+    try{
+        const {id} = req.params;
+        const servico = await prisma.servico.findUnique({
+            where: {
+                id: parseInt(id),
+            },
+        });
+
+        if(!servico){
+            console.error('Servico não encontrado');
+            return;
+        }
+
+        const servicoAtualizado = await prisma.servico.update({
+            where: {
+                id: parseInt(id),
+            },
+            data: {
+                situacao: 'Concluido',
+            }
+        
+            
+        })
+        res.json(servicoAtualizado);
+    } catch(error){
+        console.error('Erro ao atualizar situação dos serviço', error)
+    }
+}
