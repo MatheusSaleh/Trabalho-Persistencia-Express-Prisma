@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { createCliente, getAllClientes, getClienteById, updateCliente, deleteCliente } from "./controller/ClienteController";
 import { createVeiculo, getAllVeiculos } from "./controller/VeiculoController";
-import { atualizarSituacaoDoServico, getAllServicos } from "./controller/ServicoController";
+import { atualizarSituacaoDoServico, deleteServico, getAllServicos } from "./controller/ServicoController";
 import { getAllAgendamentos } from "./controller/AgendamentoController";
 
 export const router = Router()
@@ -17,5 +17,6 @@ router.post("/veiculos", createVeiculo)
 
 router.get("/servicos", getAllServicos)
 router.put("/atualizar-situacao-do-servico/:id", atualizarSituacaoDoServico)
+router.delete("/servicos/:id", deleteServico)
 
 router.get("/agendamentos", getAllAgendamentos)
