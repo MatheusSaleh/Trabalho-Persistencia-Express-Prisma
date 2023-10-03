@@ -31,5 +31,36 @@ Esta é uma aplicação web desenvolvida por Matheus Saleh para gerenciar as ope
 - **Framework Web:** Ionic com Angular, e Node com Express e Prisma
 - **Banco de Dados:** PostgreSQL
 
+## Diagrama de Classes
+
++-----------------+        +-----------------+
+|     Cliente     |        |     Veiculo     |
++-----------------+        +-----------------+
+| id: Int         |        | id: Int         |
+| nome: String    |        | marca: String   |
+| email: String?  |        | modelo: String  |
+|                 |        | ano: Int        |
+|                 |        | placa: String   |
+|                 |        | cliente: Cliente|
++-----------------+        +-----------------+
+        |                        |      |
+        |                        |      |
+        |                        |      |
+        | veiculos               |      | servicos
+        |                        |      |
+        v                        v      v
++-----------------+        +-----------------+
+|     Agendamento |        |     Servico     |
++-----------------+        +-----------------+
+| id: Int         |        | id: Int         |
+| data: DateTime  |        | tipo: String    |
+| cliente: Cliente|        | valor: Float    |
+|                 |        |                 |
++-----------------+        |                 |
+                           |                 |
+                           |                 |
+                           +-----------------+
+
+
 
 
